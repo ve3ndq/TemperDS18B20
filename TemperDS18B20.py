@@ -30,10 +30,10 @@ def read_temp():
       strC=str(temp_c)
       print(strC)
       #strTime=time.asctime( time.localtime(time.time())
-      return temp_c, temp_f, time.asctime( time.localtime(time.time()) )
-
+      #return temp_c, temp_f, time.asctime( time.localtime(time.time()) )
+      return strC
 while True:
    #print(read_temp(),file=f1)                                      # Print temperature
-   read_temp()
-   print(strC)
+   #read_temp()
+   print(read_temp())
    time.sleep(1) #COMMENT ABCDEFT
