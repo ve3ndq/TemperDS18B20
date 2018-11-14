@@ -27,5 +27,6 @@ def read_temp():
       return temp_c, temp_f, time.asctime( time.localtime(time.time()) )
 
 while True:
-   print(read_temp(),file=f1)                                      # Print temperature
+   #print(read_temp(),file=f1)                                      # Print temperature
+   f.write(read_temp())
    time.sleep(1) #COMMENT ABCDEFT
