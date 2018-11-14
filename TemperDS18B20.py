@@ -28,4 +28,4 @@ def read_temp():
 
 while True:
    print(read_temp(),file=f1)                                      # Print temperature
-   time.sleep(1)
+   time.sleep(1) #COMMENT ABCDEFT
