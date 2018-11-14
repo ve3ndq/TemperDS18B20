@@ -2,7 +2,7 @@ import os                                                  # import os module
 import glob                                                # import glob module
 import time                                                # import time module
 os.system('modprobe w1-gpio')                              # load one wire communication device kernel modules
-os.system('modprobe w1-therm')                                                 
+os.system('modprobe w1-therm')
 base_dir = '/sys/bus/w1/devices/'                          # point to the address
 device_folder = glob.glob(base_dir + '28*')[0]             # find device with address starting from 28*
 device_file = device_folder + '/w1_slave'                  # store the details
@@ -23,10 +23,9 @@ def read_temp():
    if equals_pos != -1:
       temp_string = lines[1][equals_pos+2:]
       temp_c = float(temp_string) / 1000.0                 # convert to Celsius
-      temp_f = temp_c * 9.0 / 5.0 + 32.0                   # convert to Fahrenheit 
+      temp_f = temp_c * 9.0 / 5.0 + 32.0                   # convert to Fahrenheit
       return temp_c, temp_f, time.asctime( time.localtime(time.time()) )
 
 while True:
-   print(read_temp())                                      # Print temperature    
-   #print(time.asctime( time.localtime(time.time()) ))
-   time.sleep(10)
+   print(read_temp(),file=f1)                                      # Print temperature
+   time.sleep(1)
