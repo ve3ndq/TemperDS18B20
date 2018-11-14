@@ -28,12 +28,12 @@ def read_temp():
       temp_c = float(temp_string) / 1000.0                 # convert to Celsius
       temp_f = temp_c * 9.0 / 5.0 + 32.0                   # convert to Fahrenheit
       strC=str(temp_c)
-      print(strC)
+      #print(strC)
       #strTime=time.asctime( time.localtime(time.time())
       #return temp_c, temp_f, time.asctime( time.localtime(time.time()) )
       return strC
 while True:
    #print(read_temp(),file=f1)                                      # Print temperature
    #read_temp()
-   print(read_temp())
+   print(read_temp()+time.asctime( time.localtime(time.time()))
    time.sleep(1) #COMMENT ABCDEFT
