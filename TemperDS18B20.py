@@ -7,6 +7,9 @@ base_dir = '/sys/bus/w1/devices/'                          # point to the addres
 device_folder = glob.glob(base_dir + '28*')[0]             # find device with address starting from 28*
 device_file = device_folder + '/w1_slave'                  # store the details
 f1=open('out.csv','w+')
+strC=""
+strF=""
+strTime=""
 
 def read_temp_raw():
    f = open(device_file, 'r')
@@ -24,9 +27,12 @@ def read_temp():
       temp_string = lines[1][equals_pos+2:]
       temp_c = float(temp_string) / 1000.0                 # convert to Celsius
       temp_f = temp_c * 9.0 / 5.0 + 32.0                   # convert to Fahrenheit
+      strC=str(temp_c)
+      strTime=time.asctime( time.localtime(time.time())
       return temp_c, temp_f, time.asctime( time.localtime(time.time()) )
 
 while True:
    #print(read_temp(),file=f1)                                      # Print temperature
-   f1.write(read_temp())
+   read_temp()
+   print(strC)
    time.sleep(1) #COMMENT ABCDEFT
