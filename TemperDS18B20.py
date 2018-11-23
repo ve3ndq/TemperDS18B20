@@ -11,8 +11,6 @@ strC=""
 strF=""
 strTime=""
 
-#ABCD
-
 
 
 def read_temp_raw():
@@ -32,6 +30,8 @@ def read_temp():
       temp_c = float(temp_string) / 1000.0                 # convert to Celsius
       temp_f = temp_c * 9.0 / 5.0 + 32.0                   # convert to Fahrenheit
       strC=str(temp_c)
+      f1.write(str(temp_c)+str(temp_f))
+
       #print(strC)
       #strTime=time.asctime( time.localtime(time.time())
       #return temp_c, temp_f, time.asctime( time.localtime(time.time()) )
