@@ -11,6 +11,10 @@ strC=""
 strF=""
 strTime=""
 
+#ABCD
+
+
+
 def read_temp_raw():
    f = open(device_file, 'r')
    lines = f.readlines()                                   # read the device details
