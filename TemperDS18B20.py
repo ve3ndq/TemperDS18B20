@@ -3,6 +3,7 @@ import os                                                  # import os module
 import glob                                                # import glob module
 import time                                                # import time module
 import datetime
+#comment
 
 
 os.system('modprobe w1-gpio')                              # load one wire communication device kernel modules
