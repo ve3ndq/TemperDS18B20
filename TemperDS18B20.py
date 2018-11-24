@@ -1,9 +1,23 @@
+#! /usr/bin/python2.7
 
 import os                                                  # import os module
 import glob                                                # import glob module
 import time                                                # import time module
 import datetime
 
+import mysql.connector
+import time
+stime = time.strftime('%Y-%m-%d %H:%M:%S')
+
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="pi",
+  passwd="raspberry",
+  database="temper"
+)
+
+mycursor = mydb.cursor()
 
 os.system('modprobe w1-gpio')                              # load one wire communication device kernel modules
 os.system('modprobe w1-therm')
@@ -35,11 +49,13 @@ def read_temp():
       temp_f = temp_c * 9.0 / 5.0 + 32.0                   # convert to Fahrenheit
       strC=str(temp_c)
       f1.write(str(temp_c)+','+ datetime.datetime.now().isoformat()+'\n')
-
+      sql = "INSERT INTO temper (temp) VALUES (%s)"
+      mycursor.execute(sql,str(temp_c))
+      mydb.commit()
       #return temp_c, temp_f, time.asctime( time.localtime(time.time()) )
       return strC
 while True:
    #print(read_temp(),file=f1)                                      # Print temperature
    #read_temp()
    print(read_temp()+time.asctime( time.localtime(time.time())))
-   time.sleep(10) 
+   time.sleep(10)
