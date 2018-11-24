@@ -5,6 +5,9 @@ import time                                                # import time module
 import datetime
 #comment
 
+asl;dfkjasd;lkfjasdl;kfjadslkfjadsf
+
+
 
 os.system('modprobe w1-gpio')                              # load one wire communication device kernel modules
 os.system('modprobe w1-therm')
