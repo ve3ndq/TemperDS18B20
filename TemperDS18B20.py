@@ -49,8 +49,10 @@ def read_temp():
       temp_f = temp_c * 9.0 / 5.0 + 32.0                   # convert to Fahrenheit
       strC=str(temp_c)
       f1.write(str(temp_c)+','+ datetime.datetime.now().isoformat()+'\n')
-      sql = "INSERT INTO temper (temp) VALUES (%s)"
-      mycursor.execute(sql,str(temp_c))
+      sql = "INSERT INTO temper (temp,location) VALUES (%s,%s);"
+      val = (temp_c,'basement')
+      print (sql,val)
+      mycursor.execute(sql,val)
       mydb.commit()
       #return temp_c, temp_f, time.asctime( time.localtime(time.time()) )
       return strC
