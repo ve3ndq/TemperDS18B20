@@ -3,10 +3,6 @@ import os                                                  # import os module
 import glob                                                # import glob module
 import time                                                # import time module
 import datetime
-#comment
-
-asl;dfkjasd;lkfjasdl;kfjadslkfjadsf
-
 
 
 os.system('modprobe w1-gpio')                              # load one wire communication device kernel modules
@@ -40,12 +36,10 @@ def read_temp():
       strC=str(temp_c)
       f1.write(str(temp_c)+','+ datetime.datetime.now().isoformat()+'\n')
 
-      #print(strC)
-      #strTime=time.asctime( time.localtime(time.time())
       #return temp_c, temp_f, time.asctime( time.localtime(time.time()) )
       return strC
 while True:
    #print(read_temp(),file=f1)                                      # Print temperature
    #read_temp()
    print(read_temp()+time.asctime( time.localtime(time.time())))
-   time.sleep(10) #COMMENT ABCDEFT
+   time.sleep(10) 
